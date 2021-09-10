@@ -25,7 +25,9 @@ else
   _endgroup=""
 fi
 
-dc="docker-compose --ansi never"
+pwd="/home/reinaldo_ignatius/onpremise"
+_dc="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v $pwd:$pwd -w=$pwd docker/compose:1.29.2"
+dc="$_dc --ansi never"
 dcr="$dc run --rm"
 
 # A couple of the config files are referenced from other subscripts, so they
